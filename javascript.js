@@ -10,3 +10,4 @@ var config = {
   var database = firebase.database();
 
   var key = AIzaSyCnaUowCn8tSao1lV56ztYhaIKG_TdH2TU
+  console.log(key)
