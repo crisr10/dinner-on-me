@@ -32,6 +32,10 @@ var Dessert = {
 
 var mealChosen = '';
 
+function buttonsViewEmpty () {
+	$('#buttonsView').empty();
+}
+
 	$('#submit').on('click',function(){
 		$('#buttonsView').empty();
 		mealButtons();
@@ -40,6 +44,7 @@ var mealChosen = '';
 
 			if (mealChosen === 'Breakfast') {
 				console.log('I Chose breakfast');
+
 			} else if (mealChosen === 'Lunch') {
 				console.log ('I Chose Lunch')
 			} else if (mealChosen === 'Dinner') {
