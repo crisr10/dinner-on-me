@@ -11,7 +11,7 @@
 
 //   var key = AIzaSyCnaUowCn8tSao1lV56ztYhaIKG_TdH2TU
   
-  var meals = ['Breakfast','Lunch','Dinner','Dessert'];
+ var meals = ['Breakfast','Lunch','Dinner','Dessert'];
 
 var Breakfast = {
 	options:['Pancakes','Eggs','Omelet'],
@@ -35,7 +35,7 @@ var Dessert = {
 		$('#buttonsView').empty();
 		mealButtons();
 		$('.meal').on('click',function(){
-			if ($(this)==='Breakfast') {
+			if ($(this).data('meal')==='Breakfast') {
 				console.log('I chose breakfast');
 			}
 		})
