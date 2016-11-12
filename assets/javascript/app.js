@@ -30,6 +30,8 @@ var tokenRetrivalOptions = {
 	client_secret: client_secret
 };
 
+
+
 function cb(data) {        
                     console.log("cb: " + JSON.stringify(data));
             }
@@ -38,12 +40,14 @@ function cb(data) {
                     //
                     // Update with your auth tokens.
                     //
-                    consumerKey : "",
-                    consumerSecret : client_secret,
-                    accessToken : "",
+                    consumerKey : "RpOfNfVyFi9ERNlGhsFL_A"
+,
+                    consumerSecret : "hPXdyUr2c_wL-LtdCvSyVZbrwek"
+,
+                    accessToken : "XEzpFfia9NnKwYT7V0lE3pMLjhJdqGJe",
                     // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
                     // You wouldn't actually want to expose your access token secret like this in a real application.
-                    accessTokenSecret : "",
+                    accessTokenSecret : "dqCha2MGUIUJFmWkhNkPZTIcj0M",
                     serviceProvider : {
                         signatureMethod : "HMAC-SHA1"
                     }
