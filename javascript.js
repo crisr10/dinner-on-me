@@ -11,7 +11,7 @@
 
 //   var key = AIzaSyCnaUowCn8tSao1lV56ztYhaIKG_TdH2TU
   
-  var meals = ['Breakfast','Lunch','Dinner','Dessert'];
+ var meals = ['Breakfast','Lunch','Dinner','Dessert'];
 
 var Breakfast = {
 	options:['Pancakes','Eggs','Omelet'],
@@ -30,15 +30,24 @@ var Dessert = {
 	price:['$','$$','$$$']
 }
 
+var mealChosen = '';
 
 	$('#submit').on('click',function(){
 		$('#buttonsView').empty();
 		mealButtons();
 		$('.meal').on('click',function(){
-			if ($(this)==='Breakfast') {
-				console.log('I chose breakfast');
+			mealChosen = $(this).data('meal');
+
+			if (mealChosen === 'Breakfast') {
+				console.log('I Chose breakfast');
+			} else if (mealChosen === 'Lunch') {
+				console.log ('I Chose Lunch')
+			} else if (mealChosen === 'Dinner') {
+				console.log('I chose Dinner');
+			} else {
+				console.log('I want some dessrt');
 			}
-		})
+		});
 	})
 
 	function mealButtons() {
