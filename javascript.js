@@ -47,7 +47,7 @@ var mealChosen = '';
 			} else {
 				console.log('I want some dessrt');
 			}
-		})
+		});
 	})
 
 	function mealButtons() {
