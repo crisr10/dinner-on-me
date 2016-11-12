@@ -1,0 +1,26 @@
+body{
+	background:#008080;
+}
+
+
+.main-header{
+	font-family: 'Lobster', cursive;
+	text-align: center;
+	text-shadow: 4px 4px 4px black;
+
+}
+
+.jumbotron{
+	background-image: url("http://fixedpricephoto.com/wp-content/uploads/2013/10/Oregano-food.jpg");
+	background-size:100%;
+	background-position: center;
+	height: 450px;
+	color:white;
+	
+	border: 6px solid navy ;
+	
+	
+	
+	;
+	
+}
