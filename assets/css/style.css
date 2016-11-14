@@ -4,9 +4,9 @@ body{
 
 #buttonsView{
 	background-color: #777
-	color:black
-	height:600px;
+	color:black;
 	width:300px;
+	height:500px;
 	border: solid 6px white;
 }
 
@@ -17,10 +17,10 @@ body{
 }
 
 .jumbotron{
+	margin-top:40px;
 	background-image: url("http://fixedpricephoto.com/wp-content/uploads/2013/10/Oregano-food.jpg");
 	background-size:100%;
 	background-position: center;
-	height: 450px;
 	color:white;
 	border: 6px solid;
 }
