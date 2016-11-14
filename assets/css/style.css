@@ -10,7 +10,6 @@ body{
 	width:300px;
 	border: solid 6px white;
 	
-	
 
 }
 
@@ -28,11 +27,10 @@ body{
 	background-position: center;
 	height: 450px;
 	color:white;
-	border: 6px solid ;	
-}
-
-#buttonsView h4{
-	color:white;
-	font-size:100px;
-
+	border: 6px solid  ;
+	
+	
+	
+	;
+	
 }
