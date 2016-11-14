@@ -1,6 +1,5 @@
 body{
 	background:#008080;
-	color:black;
 }
 
 #buttonsView{
@@ -9,16 +8,12 @@ body{
 	height:600px;
 	width:300px;
 	border: solid 6px white;
-	
-
 }
 
-.main-header{
-	
+.main-header {
 	font-family: 'Lobster', cursive;
 	text-align: center;
 	text-shadow: 4px 4px 4px black;
-
 }
 
 .jumbotron{
@@ -27,10 +22,10 @@ body{
 	background-position: center;
 	height: 450px;
 	color:white;
-	border: 6px solid  ;
-	
-	
-	
-	;
-	
+	border: 6px solid;
+}
+
+#buttonsView h4 {
+	color:white;
+	font-size:20px;
 }
