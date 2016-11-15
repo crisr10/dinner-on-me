@@ -30,6 +30,7 @@ var price = ['$','$$','$$$'];
 var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
+var instructions = '';
 
 // App starts 
 $(document).ready(function(){
@@ -52,8 +53,7 @@ $(document).ready(function(){
 	// Functons that creates the meal buttons
 	function mealButtons() {
 		emptyButtonsView();
-
-		// 
+		instructions = $('')
 		for (var i = 0; i < meals.length; i++) {
 			var $mealButtons = $('<button>');
 			$mealButtons.text(meals[i].meal);
