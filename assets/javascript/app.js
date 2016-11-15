@@ -30,10 +30,20 @@ var tokenRetrivalOptions = {
 	client_secret: client_secret
 };
 
+// var search  = $('#search').val().trim();
+
+$('#submit').on('click', function(){
+	var search = $('#search').val().trim()
+	console.log(search);
+})
 
 
 function cb(data) {        
-                    console.log("cb: " + JSON.stringify(data));
+                    // console.log("cb: " + JSON.stringify(data));
+                    console.log("cb: " + JSON.stringify(data.businesses[0].location));
+                    console.log("cb: " + JSON.stringify(data.businesses[0].rating));
+                    console.log("cb: " + JSON.stringify(data.businesses.length));
+
             }
             
                 var auth = {
@@ -54,7 +64,7 @@ function cb(data) {
                 };
         
                 var terms = 'food';
-                var near = 'San+Francisco';
+                var near =  'san diego';
         
                 var accessor = {
                     consumerSecret : auth.consumerSecret,

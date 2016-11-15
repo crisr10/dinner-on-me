@@ -48,7 +48,7 @@ function buttonsViewEmpty () {
 			} else if (mealChosen === 'Lunch') {
 				console.log ('I Chose Lunch')
 			} else if (mealChosen === 'Dinner') {
-				console.log('I chose Dinner');
+				console.log('I Chose Dinner');
 			} else {
 				console.log('I want some dessrt');
 			}
