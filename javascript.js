@@ -31,13 +31,15 @@ var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
 var instructions = '';
+var city;
 
 // App starts 
 $(document).ready(function(){
 
 	// Click function for meal buttons
 	$('#submit').on('click',function(){
-
+		city = ($('#search').val().trim()).toLowerCase();
+		console.log(city);
 		// Create the buttons for the meal options
 		mealButtons();
 
@@ -53,11 +55,12 @@ $(document).ready(function(){
 	// Functons that creates the meal buttons
 	function mealButtons() {
 		emptyButtonsView();
-		instructions = $('')
+		instructions = $('<h3 class="instructions"> Please select what type of meal would you like </h3>')
+		$('#buttonsView').append(instructions);
 		for (var i = 0; i < meals.length; i++) {
 			var $mealButtons = $('<button>');
 			$mealButtons.text(meals[i].meal);
-			$mealButtons.attr('class','meal btn btn-success');
+			$mealButtons.attr('class','meal btn btn-success hvr-bounce-to-right');
 			$mealButtons.attr('data-meal',meals[i].meal);
 			$mealButtons.attr('data-index',meals[i].index);
 			$mealButtons.attr('options',meals[i].options);
