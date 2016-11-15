@@ -39,7 +39,7 @@ $(document).ready(function(){
 	// Click function for meal buttons
 	$('#submit').on('click',function(){
 		city = ($('#search').val().trim()).toLowerCase();
-		console.log(city);
+		$('#search').val('');
 		// Create the buttons for the meal options
 		mealButtons();
 
@@ -84,11 +84,13 @@ $(document).ready(function(){
 
 	// Function that creates the meal options buttons
 	function optionsButtons(indexMeals) {
+		instructions = $('<h3 class="instructions"> Now Select a category </h3>')
+		$('#buttonsView').append(instructions);
 		var indexOptions =meals[indexMeals].options
 		for (var j = 0; j < indexOptions.length; j++) {
 			var $optionsButtons = $('<button>');
 			$optionsButtons.text(indexOptions[j]);
-			$optionsButtons.attr('class','options btn btn-danger');
+			$optionsButtons.attr('class','options btn btn-danger hvr-back-pulse');
 			$optionsButtons.data('mealOption', indexOptions[j]);
 			$optionsButtons.appendTo('#buttonsView');
 		}
@@ -102,10 +104,12 @@ $(document).ready(function(){
 
 	// Function that creates the price buttons
 	function priceButtons () {
+		instructions = $('<h3 class="instructions"> Now Select the price </h3>')
+		$('#buttonsView').append(instructions);
 		for (var m = 0; m < price.length; m++) {
 			var $moneyButtons = $('<button>');
 			$moneyButtons.text(price[m]);
-			$moneyButtons.attr('class', 'price btn btn-primary');
+			$moneyButtons.attr('class', 'price btn btn-primary hvr-fade');
 			$moneyButtons.data('price',price[m]);
 			$moneyButtons.appendTo('#buttonsView');
 		}
