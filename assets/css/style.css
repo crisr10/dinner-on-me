@@ -8,11 +8,15 @@ body{
 	color:black;
 	height:375px;
 	width:300px;
-	border: groove 6px red;
+	border: inset 6px red;
 	font-family: 'Shrikhand', cursive;
 	font-size: 24px;
 	text-shadow: 2px 2px 2px black;
+<<<<<<< HEAD
 	margin-top: -15px;
+=======
+	margin:0px;
+>>>>>>> 5eec30e1507322969fcdf5e84d5a61a0d37b6fe3
 
 }
 
@@ -34,12 +38,18 @@ body{
 #buttonsView h4 {
 	color:white;
 }
+<<<<<<< HEAD
 
 footer {
+=======
+footer{
+	margin-top: 30px;
+>>>>>>> 5eec30e1507322969fcdf5e84d5a61a0d37b6fe3
 	height: 70px;
 	border: solid  white 4px;
 	background-color:red;
 	width: 100%;
+	border-bottom-color: transparent;
 
 }
 a {
@@ -47,5 +57,13 @@ a {
 	text-align: center; 
     text-decoration: none;
     display: inline-block;
+}
+#location{
+	float:left;
+	border:groove 4px red;
+	color:red;
+	box-sizing: border-box;
+	height: 75px;
+	margin-bottom: -35px;
 
 }
