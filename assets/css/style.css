@@ -12,11 +12,8 @@ body{
 	font-family: 'Shrikhand', cursive;
 	font-size: 24px;
 	text-shadow: 2px 2px 2px black;
-<<<<<<< HEAD
 	margin-top: -15px;
-=======
-	margin:0px;
->>>>>>> 5eec30e1507322969fcdf5e84d5a61a0d37b6fe3
+
 
 }
 
@@ -38,13 +35,9 @@ body{
 #buttonsView h4 {
 	color:white;
 }
-<<<<<<< HEAD
+
 
 footer {
-=======
-footer{
-	margin-top: 30px;
->>>>>>> 5eec30e1507322969fcdf5e84d5a61a0d37b6fe3
 	height: 70px;
 	border: solid  white 4px;
 	background-color:red;
