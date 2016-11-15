@@ -29,7 +29,7 @@ var price = ['$','$$','$$$'];
 //Empty var to store users preferences
 var mealChosen = '';
 var mealType = '';
-var price = '';
+var priceChoice = '';
 
 // App starts 
 $(document).ready(function(){
@@ -72,14 +72,15 @@ $(document).ready(function(){
 			// Grabs the index number inside the meals array
 			var indexMeals = $(this).data('index');
 
+			emptyButtonsView();
+
 			optionsButtons(indexMeals);
 
 		});
 	}
 
-	// Funstion that creates the meal options buttons
+	// Function that creates the meal options buttons
 	function optionsButtons(indexMeals) {
-		emptyButtonsView();
 		var indexOptions =meals[indexMeals].options
 		for (var j = 0; j < indexOptions.length; j++) {
 			var $optionsButtons = $('<button>');
@@ -91,24 +92,24 @@ $(document).ready(function(){
 		// Click function for meal 
 		$('.options').on('click',function() {
 			mealType = ($(this).data('mealOption'));
+			emptyButtonsView();
 			priceButtons();
-
 		});
 	}
 
 	// Function that creates the price buttons
 	function priceButtons () {
-		emptyButtonsView();
-		for (var money=0; money<price.length; money++) {
-			var $moneyButtons = $('<buttons>');
-			$moneyButtons.text(price[money]);
+		for (var m = 0; m < price.length; m++) {
+			var $moneyButtons = $('<button>');
+			$moneyButtons.text(price[m]);
 			$moneyButtons.attr('class', 'price btn btn-primary');
-			$moneyButtons.data('price',price[money]);
+			$moneyButtons.data('price',price[m]);
 			$moneyButtons.appendTo('#buttonsView');
 		}
 
 		$('.price').on('click',function(){
-			price = $(this).data('price');
+			priceChosen = $(this).data('price');
+			console.log(priceChosen);
 		})
 	}
 
