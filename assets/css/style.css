@@ -1,16 +1,6 @@
 body{
-<<<<<<< HEAD
-	background:#008080;
-}
 
-#buttonsView{
-	background-color: #777
-	color:black;
-	width:300px;
-	height:500px;
-	border: solid 6px white;
-=======
-	background:white;
+	background:#008080;
 }
 
 #buttonsView{
@@ -23,7 +13,7 @@ body{
 	font-size: 24px;
 	text-shadow: 2px 2px 2px black;
 	margin-top: -15px;
->>>>>>> c1c9c27dd43e99d47f2814dcdfcab4d2f1b1d521
+
 }
 
 .main-header {
@@ -37,36 +27,25 @@ body{
 	background-image: url("http://fixedpricephoto.com/wp-content/uploads/2013/10/Oregano-food.jpg");
 	background-size:100%;
 	background-position: center;
-<<<<<<< HEAD
 	color:white;
 	border: 6px solid;
 }
 
 #buttonsView h4 {
 	color:white;
-	font-size:20px;
-}
-=======
-	height: 400px;
-	color:white;
-	border: 6px solid red;
 }
 
-#buttonsView h4 {
-	color:white;
-}
-footer{
+footer {
 	height: 70px;
 	border: solid  white 4px;
 	background-color:red;
 	width: 100%;
 
 }
-a{
+a {
 	color:black;
 	text-align: center; 
     text-decoration: none;
     display: inline-block;
 
 }
->>>>>>> c1c9c27dd43e99d47f2814dcdfcab4d2f1b1d521
