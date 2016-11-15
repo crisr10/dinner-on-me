@@ -1,17 +1,28 @@
-body{
-	background:white;
+html{
+	height: 100%
+	margin:0;
+	padding: 0;
 }
+
+
+body{
+	margin:0;
+	height: 100%;
+}
+
 
 #buttonsView{
 	background-color: #777;
 	color:black;
 	height:375px;
-	width:300px;
+	width:475px;
 	border: inset 6px red;
 	font-family: 'Shrikhand', cursive;
 	font-size: 24px;
 	text-shadow: 2px 2px 2px black;
 	margin:0px;
+	float:left;
+	margin-left: 40px;
 
 }
 
@@ -34,13 +45,16 @@ body{
 	color:white;
 }
 footer{
+	position: absolute;
+	bottom: 0px;
 	margin-top: 30px;
 	height: 70px;
 	border: solid  white 4px;
 	background-color:red;
 	width: 100%;
 	border-bottom-color: transparent;
-
+	
+	
 }
 a{
 	color:black;
@@ -53,7 +67,14 @@ a{
 	border:groove 4px red;
 	color:red;
 	box-sizing: border-box;
-	height: 75px;
+	height: 375px;
 	margin-bottom: -35px;
+	width: 475px;
+	margin-left: 200px;
 
+}
+
+.wrapper {
+	position:relative;
+	min-height:100%;
 }
