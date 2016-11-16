@@ -1,75 +1,47 @@
-html{
-	height: 100%
-	margin:0;
-	padding: 0;
+    body {
+      background-image:url('http://www.johnmariani.com/archive/2009/091122/unclejacks%203.jpg');
+      background-size: cover;
+    }
+    .aboutUs, .dinnerOnMe {
+      width:80%;
+      color:white;
+      text-align:center;
+      margin-right:auto;
+      margin-left:auto;
+      text-shadow:2px 2px 4px black;
+    }
+
+    #start {
+      text-shadow:none;
+    }
+
+    .aboutUs h3, .dinnerOnMe h3 {
+      text-align:center;
+      font-size:30px;
+    }
+
+    .dinnerOnMe {
+      padding-top:100px;
+    }
+
+    .aboutUs{
+      padding-top:250px;
+    }
+
+    .dinnerOnMeHeader {
+      font-size:50px;
+      color:white;
+      text-align:center;
+    }
+
+.container-fluid {
+  width:80%;
 }
 
-
-body{
-	margin:0;
-	height: 100%;
-  background-image: url('../images/symphony.png');
-}
-
-.container {
-  padding:0;
-}
-
-.wrapper {
-	position:relative;
-	min-height:100%;
-}
-
-/*This is the buttons view section*/
-
-#buttonsView{
-	background-color: #777;
-	color:black;
-	border: inset 6px red;
-	font-family: 'Shrikhand', cursive;
-	font-size: 24px;
-	text-shadow: 2px 2px 2px black;
-	text-align:center;
-	margin:0px;
-}
-
-#buttonsView h4 {
-	color:white;
-}
-
-/*jumbotron section*/
-.main-header {
-	font-family: 'Lobster', cursive;
-	text-align: center;
-	text-shadow: 4px 4px 4px black;
-}
-
-.jumbotron{
-	background-image: url("http://fixedpricephoto.com/wp-content/uploads/2013/10/Oregano-food.jpg");
-	background-size:100%;
-	background-position: center;
-	color:white;
-	border: 6px solid red;
-	height:400px;
-}
-
-
-footer {
-	position: absolute;
-	bottom: 0px;
-	margin-top: 30px;
-	height: 70px;
-	border: solid  white 4px;
-	background-color:red;
-	width: 100%;
-	border-bottom-color: transparent;
-}
-
-a {
-	color:black;
-	text-align: center; 
-    text-decoration: none;
-    display: inline-block;
+#buttonsView {
+  width:40%;
+  margin-right:auto;
+  margin-left:auto;
 }
 
 /*Everything in the row classin on the middle of the page*/
@@ -93,17 +65,13 @@ a {
 	margin:20px;
 }
 .meal, .price {
-	width:80%;
+	width:30%;
 	margin:10px;
 }
 
 .options {
   width:120px;
   margin:10px;
-}
-
-.row{
-	margin-bottom:60px;
 }
 
 #search {

@@ -37,9 +37,8 @@ var city;
 $(document).ready(function(){
 
 	// Click function for meal buttons
-	$('#submit').on('click',function(){
-		city = ($('#search').val().trim()).toLowerCase();
-		$('#search').val('');
+	$('#start').on('click',function(){
+
 		// Create the buttons for the meal options
 		mealButtons();
 
