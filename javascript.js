@@ -31,13 +31,13 @@ var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
 var instructions = '';
-var search; 
+var city; 
 
 // App starts 
 $(document).ready(function(){
 
 	// Click function for meal buttons
-	$('#submit').on('click',function(){
+	$('#start').on('click',function(){
 
 		//location
 		search = $('#search').val().trim()
@@ -58,11 +58,12 @@ $(document).ready(function(){
 	// Functons that creates the meal buttons
 	function mealButtons() {
 		emptyButtonsView();
-		instructions = $('')
+		instructions = $('<h3 class="instructions"> Please select what type of meal would you like </h3>')
+		$('#buttonsView').append(instructions);
 		for (var i = 0; i < meals.length; i++) {
 			var $mealButtons = $('<button>');
 			$mealButtons.text(meals[i].meal);
-			$mealButtons.attr('class','meal btn btn-success');
+			$mealButtons.attr('class','meal btn btn-success hvr-bounce-to-right');
 			$mealButtons.attr('data-meal',meals[i].meal);
 			$mealButtons.attr('data-index',meals[i].index);
 			$mealButtons.attr('options',meals[i].options);
@@ -86,11 +87,13 @@ $(document).ready(function(){
 
 	// Function that creates the meal options buttons
 	function optionsButtons(indexMeals) {
+		instructions = $('<h3 class="instructions"> Now Select a category </h3>')
+		$('#buttonsView').append(instructions);
 		var indexOptions =meals[indexMeals].options
 		for (var j = 0; j < indexOptions.length; j++) {
 			var $optionsButtons = $('<button>');
 			$optionsButtons.text(indexOptions[j]);
-			$optionsButtons.attr('class','options btn btn-danger');
+			$optionsButtons.attr('class','options btn btn-danger hvr-back-pulse');
 			$optionsButtons.data('mealOption', indexOptions[j]);
 			$optionsButtons.appendTo('#buttonsView');
 		}
@@ -104,10 +107,12 @@ $(document).ready(function(){
 
 	// Function that creates the price buttons
 	function priceButtons () {
+		instructions = $('<h3 class="instructions"> Now Select the price </h3>')
+		$('#buttonsView').append(instructions);
 		for (var m = 0; m < price.length; m++) {
 			var $moneyButtons = $('<button>');
 			$moneyButtons.text(price[m]);
-			$moneyButtons.attr('class', 'price btn btn-primary');
+			$moneyButtons.attr('class', 'price btn btn-primary hvr-fade');
 			$moneyButtons.data('price',price[m]);
 			$moneyButtons.appendTo('#buttonsView');
 		}
