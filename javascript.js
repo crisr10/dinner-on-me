@@ -33,24 +33,13 @@ var priceChoice = '';
 var instructions = '';
 var city; 
 
-// App starts 
 $(document).ready(function(){
-
-	// Click function for meal buttons
-	$('#start').on('click',function(){
-
-		//location
-		search = $('#search').val().trim()
-		console.log(search);
-
-		// Create the buttons for the meal options
-		mealButtons();
-
-		
-
-	}); // End Submit on click 
-
-});
+    // Click function for meal buttons
+    $('#start').on('click',function(){
+        // Create the buttons for the meal options
+        mealButtons();
+    }); // End Submit on click 
+}); // App ends
 
 	function emptyButtonsView() {
 		$('#buttonsView').empty();
