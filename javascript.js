@@ -89,7 +89,7 @@ $(document).ready(function(){
 		for (var j = 0; j < indexOptions.length; j++) {
 			var $optionsButtons = $('<button>');
 			$optionsButtons.text(indexOptions[j]);
-			$optionsButtons.attr('class','options btn btn-danger hvr-back-pulse');
+			$optionsButtons.attr('class','options btn btn-danger');
 			$optionsButtons.data('mealOption', indexOptions[j]);
 			$optionsButtons.appendTo('#buttonsView');
 		}
@@ -115,8 +115,22 @@ $(document).ready(function(){
 
 		$('.price').on('click',function(){
 			priceChosen = $(this).data('price');
-			console.log(priceChosen);
+			emptyButtonsView();
+			enterLocation();
 		})
+	}
+
+	function enterLocation() {
+		var $location = $('<div class="group-form"></div>');
+		$location.append('<label class="control-label" for="focusedInput">Enter Your City</label>');
+		$location.append('<input class="form-control" id="focusedInput" placeholder="Enter City Here">');
+		$location.append('<span class="input-group-btn"><button class="btn btn-default submit" type="button">Submit</button></span>');
+		$('#buttonsView').append($location);
+
+		$('.submit').on('click',function(){
+			city = ($('#focusedInput').val().trim()).toLowerCase();
+			emptyButtonsView();
+		});
 	}
 
 
