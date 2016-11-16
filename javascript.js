@@ -31,26 +31,25 @@ var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
 var instructions = '';
-var city;
+var city; 
 
 // App starts 
 $(document).ready(function(){
 
 	// Click function for meal buttons
 	$('#start').on('click',function(){
-
 		// Create the buttons for the meal options
 		mealButtons();
 
+		
+
 	}); // End Submit on click 
 
-}); // App ends
+});
 
-	// Deletes everything on $('#buttonsView') in the HTML 
-	function emptyButtonsView () {
+	function emptyButtonsView() {
 		$('#buttonsView').empty();
 	}
-
 	// Functons that creates the meal buttons
 	function mealButtons() {
 		emptyButtonsView();
