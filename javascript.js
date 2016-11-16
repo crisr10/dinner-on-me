@@ -31,6 +31,7 @@ var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
 var instructions = '';
+var search; 
 
 // App starts 
 $(document).ready(function(){
@@ -38,13 +39,22 @@ $(document).ready(function(){
 	// Click function for meal buttons
 	$('#submit').on('click',function(){
 
+		//location
+		search = $('#search').val().trim()
+		console.log(search);
+
 		// Create the buttons for the meal options
 		mealButtons();
+
+		
 
 	}); // End Submit on click 
 
 });
 
+	function emptyButtonsView() {
+		$('#buttonsView').empty();
+	}
 	// Functons that creates the meal buttons
 	function mealButtons() {
 		emptyButtonsView();
