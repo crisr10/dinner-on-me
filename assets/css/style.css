@@ -28,7 +28,7 @@
       padding-top:250px;
     }
 
-    .dinnerOnMeHeader {
+    .dinnerOnMeHeader ,.aboutUsHeader{
       font-size:50px;
       color:white;
       text-align:center;
@@ -77,6 +77,10 @@
 #search {
   color:black;
   font-size:15px;
+}
+
+.control-label {
+  margin-bottom:20px;
 }
 
 
