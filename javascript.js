@@ -30,34 +30,35 @@ var price = ['$','$$','$$$'];
 var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
+var instructions = '';
+var city; 
 
 // App starts 
 $(document).ready(function(){
 
 	// Click function for meal buttons
-	$('#submit').on('click',function(){
-
+	$('#start').on('click',function(){
 		// Create the buttons for the meal options
 		mealButtons();
 
+		
+
 	}); // End Submit on click 
 
-}); // App ends
+});
 
-	// Deletes everything on $('#buttonsView') in the HTML 
-	function emptyButtonsView () {
+	function emptyButtonsView() {
 		$('#buttonsView').empty();
 	}
-
 	// Functons that creates the meal buttons
 	function mealButtons() {
 		emptyButtonsView();
-
-		// 
+		instructions = $('<h3 class="instructions"> Please select what type of meal would you like </h3>')
+		$('#buttonsView').append(instructions);
 		for (var i = 0; i < meals.length; i++) {
 			var $mealButtons = $('<button>');
 			$mealButtons.text(meals[i].meal);
-			$mealButtons.attr('class','meal btn btn-success');
+			$mealButtons.attr('class','meal btn btn-success hvr-bounce-to-right');
 			$mealButtons.attr('data-meal',meals[i].meal);
 			$mealButtons.attr('data-index',meals[i].index);
 			$mealButtons.attr('options',meals[i].options);
@@ -81,6 +82,8 @@ $(document).ready(function(){
 
 	// Function that creates the meal options buttons
 	function optionsButtons(indexMeals) {
+		instructions = $('<h3 class="instructions"> Now Select a category </h3>')
+		$('#buttonsView').append(instructions);
 		var indexOptions =meals[indexMeals].options
 		for (var j = 0; j < indexOptions.length; j++) {
 			var $optionsButtons = $('<button>');
@@ -99,18 +102,34 @@ $(document).ready(function(){
 
 	// Function that creates the price buttons
 	function priceButtons () {
+		instructions = $('<h3 class="instructions"> Now Select the price </h3>')
+		$('#buttonsView').append(instructions);
 		for (var m = 0; m < price.length; m++) {
 			var $moneyButtons = $('<button>');
 			$moneyButtons.text(price[m]);
-			$moneyButtons.attr('class', 'price btn btn-primary');
+			$moneyButtons.attr('class', 'price btn btn-primary hvr-fade');
 			$moneyButtons.data('price',price[m]);
 			$moneyButtons.appendTo('#buttonsView');
 		}
 
 		$('.price').on('click',function(){
 			priceChosen = $(this).data('price');
-			console.log(priceChosen);
+			emptyButtonsView();
+			enterLocation();
 		})
+	}
+
+	function enterLocation() {
+		var $location = $('<div class="group-form"></div>');
+		$location.append('<label class="control-label" for="focusedInput">Enter Your City</label>');
+		$location.append('<input class="form-control" id="focusedInput" placeholder="Enter City Here">');
+		$location.append('<span class="input-group-btn"><button class="btn btn-default submit" type="button">Submit</button></span>');
+		$('#buttonsView').append($location);
+
+		$('.submit').on('click',function(){
+			city = ($('#focusedInput').val().trim()).toLowerCase();
+			emptyButtonsView();
+		});
 	}
 
 
