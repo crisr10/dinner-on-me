@@ -41,8 +41,6 @@ $(document).ready(function(){
 		// Create the buttons for the meal options
 		mealButtons();
 
-		
-
 	}); // End Submit on click 
 
 });
@@ -88,7 +86,7 @@ $(document).ready(function(){
 		for (var j = 0; j < indexOptions.length; j++) {
 			var $optionsButtons = $('<button>');
 			$optionsButtons.text(indexOptions[j]);
-			$optionsButtons.attr('class','options btn btn-danger');
+			$optionsButtons.attr('class','options btn btn-danger hvr-bounce-to-right');
 			$optionsButtons.data('mealOption', indexOptions[j]);
 			$optionsButtons.appendTo('#buttonsView');
 		}
@@ -107,7 +105,7 @@ $(document).ready(function(){
 		for (var m = 0; m < price.length; m++) {
 			var $moneyButtons = $('<button>');
 			$moneyButtons.text(price[m]);
-			$moneyButtons.attr('class', 'price btn btn-primary hvr-fade');
+			$moneyButtons.attr('class', 'price btn btn-primary hvr-bounce-to-right');
 			$moneyButtons.data('price',price[m]);
 			$moneyButtons.appendTo('#buttonsView');
 		}

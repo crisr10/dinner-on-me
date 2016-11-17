@@ -13,6 +13,7 @@
 
     #start {
       text-shadow:none;
+      margin-bottom: 20px;
     }
 
     .aboutUs h3, .dinnerOnMe h3, .control-label {
@@ -39,7 +40,7 @@
 }
 
 #buttonsView {
-  width:40%;
+  width:80%;
   margin-right:auto;
   margin-left:auto;
 }
@@ -55,18 +56,19 @@
 #location h3 {
 	margin-top:10px;
 }
-.col-md-2, .col-md-5 {
-	height:375px;
-}
-
 
 .instructions {
 	color:white;
 	margin:20px;
 }
-.meal, .price {
+.price {
 	width:30%;
 	margin:10px;
+}
+
+.meal {
+  width:20%;
+  margin:10px;
 }
 
 .options {
@@ -83,6 +85,22 @@
   margin-bottom:20px;
 }
 
+#focusedInput {
+  width:40%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.col-md-6 {
+  height:400px;
+}
+
+#startOver {
+  width:20%;
+  margin-right:auto;
+  margin-left:auto;
+  text-align:center;
+}
 
 /*hover.css styling*/
 .hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
@@ -96,8 +114,8 @@
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  background-color: green;
-  background-color: green;
+  background-color: #24aae9;
+  background-color: #24aae9;
   color: white;
 }
 
@@ -121,7 +139,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: green;
+  background: #24aae9;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
