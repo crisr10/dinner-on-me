@@ -1,11 +1,110 @@
   var map;
+  var latitude;
+  var longitude;
+  var infoWindow;
       function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
+      	var infoWindow = new google.maps.InfoWindow({map: map});
+      	console.log('google', infoWindow);
+      	geoFindMe();
+      	function geoFindMe() {
+  var output = document.getElementById("buttonsView");
+
+  if (!navigator.geolocation){
+    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+    return;
+  }
+
+  function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    console.log('hi')
+
+    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
+    var img = new Image();
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+    output.appendChild(img);
+  }
+
+  function error() {
+    output.innerHTML = "Unable to retrieve your location";
+  }
+
+  output.innerHTML = "<p>Locating…</p>";
+
+  navigator.geolocation.getCurrentPosition(success, error);
+}
+
+        map = new google.maps.Map(document.getElementById('buttonsView'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 8
         });
       }
 
+var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCnaUowCn8tSao1lV56ztYhaIKG_TdH2TU&callback'
+$.ajax({url: url, method: 'GET'})
+.done(function(response){
+	console.log('hi',response);
+})
+
+//   // Try HTML5 geolocation.
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       var pos = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//       };
+
+//      function geoFindMe() {
+//   var output = document.getElementById("out");
+
+//   if (!navigator.geolocation){
+//     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+//     return;
+//   }
+
+//   function success(position) {
+//     var latitude  = position.coords.latitude;
+//     var longitude = position.coords.longitude;
+
+//     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
+//     var img = new Image();
+//     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+//     output.appendChild(img);
+//   }
+
+//   function error() {
+//     output.innerHTML = "Unable to retrieve your location";
+//   }
+
+//   output.innerHTML = "<p>Locating…</p>";
+
+//   navigator.geolocation.getCurrentPosition(success, error);
+// }
+
+
+
+//       infoWindow.setPosition(pos);
+//       infoWindow.setContent('Location found.');
+//       map.setCenter(pos);
+//     }, function() {
+//       handleLocationError(true, infoWindow, map.getCenter());
+//     });
+//   } else {
+//     // Browser doesn't support Geolocation
+//     handleLocationError(false, infoWindow, map.getCenter());
+//   }
+
+
+// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+//   infoWindow.setPosition(pos);
+//   infoWindow.setContent(browserHasGeolocation ?
+//                         'Error: The Geolocation service failed.' :
+//                         'Error: Your browser doesn\'t support geolocation.');
+// }
 // C.R.U.D. (create, read, update, delete)
 
 var client_id = "B_-KZ4g7hB8mWD4bYryGfQ";
@@ -16,7 +115,6 @@ var tokenRetrivalOptions = {
 	client_id: client_id,
 	client_secret: client_secret
 };
-
 
 
 function cb(data) {        
