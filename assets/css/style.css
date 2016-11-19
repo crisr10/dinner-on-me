@@ -1,4 +1,4 @@
-    body {
+body {
       background-image:url('http://www.johnmariani.com/archive/2009/091122/unclejacks%203.jpg');
       background-size: cover;
     }
@@ -13,6 +13,7 @@
 
     #start {
       text-shadow:none;
+      margin-bottom: 20px;
     }
 
     .aboutUs h3, .dinnerOnMe h3, .control-label {
@@ -24,58 +25,50 @@
       padding-top:100px;
     }
 
-
     .aboutUs{
       padding-top:250px;
     }
 
-<<<<<<< HEAD
-
-    .dinnerOnMeHeader , .aboutUsHeader{
-=======
     .dinnerOnMeHeader ,.aboutUsHeader{
->>>>>>> e03dffdac6dbf30e2f98af47ca3c1d08d6ba1522
       font-size:50px;
       color:white;
       text-align:center;
     }
-
 
 .container-fluid {
   width:80%;
 }
 
 #buttonsView {
-  width:40%;
+  width:80%;
   margin-right:auto;
   margin-left:auto;
 }
 
-
-
 /*Everything in the row classin on the middle of the page*/
 #location{
-	border:groove 4px red;
-	color:red;
-	box-sizing: border-box;
-	font-size:20px;
+  border:groove 4px red;
+  color:red;
+  box-sizing: border-box;
+  font-size:20px;
 }
 
 #location h3 {
-	margin-top:10px;
-
+  margin-top:10px;
 }
-
-
 
 .instructions {
-	color:white;
-	margin:20px;
+  color:white;
+  margin:20px;
+}
+.price {
+  width:30%;
+  margin:10px;
 }
 
-.meal, .price {
-	width:30%;
-	margin:10px;
+.meal {
+  width:20%;
+  margin:10px;
 }
 
 .options {
@@ -86,18 +79,28 @@
 #search {
   color:black;
   font-size:15px;
+}
 
-<<<<<<< HEAD
-}
-.control-label{
-  margin-bottom: 20px;
-}
-=======
 .control-label {
   margin-bottom:20px;
 }
 
->>>>>>> e03dffdac6dbf30e2f98af47ca3c1d08d6ba1522
+#focusedInput {
+  width:40%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.col-md-6 {
+  height:400px;
+}
+
+#startOver {
+  width:20%;
+  margin-right:auto;
+  margin-left:auto;
+  text-align:center;
+}
 
 /*hover.css styling*/
 .hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
@@ -111,8 +114,8 @@
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  background-color: green;
-  background-color: green;
+  background-color: #24aae9;
+  background-color: #24aae9;
   color: white;
 }
 
@@ -136,7 +139,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: green;
+  background: #24aae9;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
@@ -157,5 +160,3 @@
   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
-
-
