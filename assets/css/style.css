@@ -1,5 +1,5 @@
     body {
-      background-image:url('http://www.johnmariani.com/archive/2009/091122/unclejacks%203.jpg');
+      background-image:url('../images/restaurant-background.jpg');
       background-size: cover;
     }
     .aboutUs, .dinnerOnMe {
@@ -163,5 +163,12 @@
 
 .cont{
   background-color:red;
+}
+
+#map, .restaurantInfo {
+  height:400px;
+  width:40%;
+  margin-bottom:60px;
+  background-color:#24aae9;
 }
 

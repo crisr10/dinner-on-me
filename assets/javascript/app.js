@@ -237,11 +237,10 @@ function cb(data) {
                         $('.restaurantInfo').append('<div class="snippet">Review highlight: ' +snippet+ '</div>');
                         $('.restaurantInfo').append('<img src="'+ratingImage+'"class="ratingimage">' );
                         $('.restaurantInfo').append('<img src="'+image+'" class="image"> ');
-                        $('#map').append('here goes the map');
 
                         initMap();
                             // Here is the aoo that makes the map appear on the screen
-                               function initMap() {
+                        function initMap() {
                             var bestChoice = {lat: latitude, lng: longitude};
                             var map = new google.maps.Map(document.getElementById('map'), {
                               zoom: 10,
@@ -270,6 +269,4 @@ function cb(data) {
                         console.log('error[' + errorThrown + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
                 });
             }
-
-
 
