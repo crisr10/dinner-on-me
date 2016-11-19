@@ -33,8 +33,8 @@ var priceChoice = '';
 var instructions = '';
 var city; 
 
-// App starts 
 $(document).ready(function(){
+
 
 	// Click function for meal buttons
 	$('#start').on('click',function(){
