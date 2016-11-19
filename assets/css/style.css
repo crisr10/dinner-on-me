@@ -29,8 +29,12 @@
       padding-top:250px;
     }
 
+<<<<<<< HEAD
 
     .dinnerOnMeHeader , .aboutUsHeader{
+=======
+    .dinnerOnMeHeader ,.aboutUsHeader{
+>>>>>>> e03dffdac6dbf30e2f98af47ca3c1d08d6ba1522
       font-size:50px;
       color:white;
       text-align:center;
@@ -83,10 +87,17 @@
   color:black;
   font-size:15px;
 
+<<<<<<< HEAD
 }
 .control-label{
   margin-bottom: 20px;
 }
+=======
+.control-label {
+  margin-bottom:20px;
+}
+
+>>>>>>> e03dffdac6dbf30e2f98af47ca3c1d08d6ba1522
 
 /*hover.css styling*/
 .hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
