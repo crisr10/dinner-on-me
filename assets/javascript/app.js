@@ -1,15 +1,3 @@
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('buttonsView'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-
 var breakfast = {
     meal: 'Breakfast',
     options: ['Pancakes','Eggs','Omelet','American','Brunch','Creperies','Waffles'],
@@ -38,16 +26,17 @@ var dessert = {
 var meals = [breakfast,lunch,dinner,dessert];
 
 // Array for meal price
-var price = ['$','$$','$$$'];
+var price = [5 , 10 , 15 ];
 
 //Empty var to store users preferences
 var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
 var instructions = '';
-var city = '';
+var zip = '';
 var latitude = '';
 var longitude = '';
+var map = "";
 
 $(document).ready(function(){
 
@@ -83,14 +72,14 @@ $(document).ready(function(){
 
             // Store meal chosen to global variable
             mealChosen = $(this).data('meal');
+            console.log(mealChosen)
 
             // Grabs the index number inside the meals array
             var indexMeals = $(this).data('index');
 
             emptyButtonsView();
 
-            optionsButtons(indexMeals);
-
+                optionsButtons(indexMeals);
         });
     }
 
@@ -116,7 +105,7 @@ $(document).ready(function(){
 
     // Function that creates the price buttons
     function priceButtons () {
-        instructions = $('<h3 class="instructions"> Now Select the price </h3>')
+        instructions = $('<h3 class="instructions"> How far are you willing to drive?</h3>')
         $('#buttonsView').append(instructions);
         for (var m = 0; m < price.length; m++) {
             var $moneyButtons = $('<button>');
@@ -135,78 +124,21 @@ $(document).ready(function(){
 
     function enterLocation() {
         var $location = $('<div class="group-form"></div>');
-        $location.append('<label class="control-label" for="focusedInput">Enter Your City</label>');
-        $location.append('<input class="form-control" id="focusedInput" placeholder="Enter City Here">');
-        $location.append('<span class="input-group-btn"><button class="btn btn-default submit" type="button">Submit</button></span>');
+        $location.append('<label class="control-label" for="focusedInput">Enter Your City or Zip Code</label>');
+        $location.append('<input class="form-control" id="focusedInput" placeholder="City or Zip Here">');
+        $location.append('<a class="input-group-btn"><button href="results.html" class="btn btn-default submit" type="button">Submit</button></span>');
         $('#buttonsView').append($location);
 
         $('.submit').on('click',function(){
-            city = ($('#focusedInput').val().trim()).toLowerCase();
+            zip = ($('#focusedInput').val().trim()).toLowerCase();
             emptyButtonsView();
+            var $container = $('<div>');
+            $container.attr('class','container');
+            $container.append('<div class="row blueBackground"></div>')
+            $('#buttonsView').append($container);
             yelp();
         });
     }
-
-
-
-
-// function googleMap () {
-
-//   var map;
-//   var address;
-//   var latitude;
-//   var longitude;
-//   var infoWindow;
-//       function initMap() {
-//         var infoWindow = new google.maps.InfoWindow({map: map});
-//         console.log('google', infoWindow);
-//         geoFindMe();
-//         function geoFindMe() {
-//   var output = document.getElementById("buttonsView");
-
-//   if (!navigator.geolocation){
-//     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-//     return;
-//   }
-
-//   function success(position) {
-//     latitude  = position.coords.latitude;
-//     longitude = position.coords.longitude;
-//     api();
-
-//     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-
-//     var img = new Image();
-//     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-
-//     output.appendChild(img);
-//   }
-
-//   function error() {
-//     output.innerHTML = "Unable to retrieve your location";
-//   }
-
-//   output.innerHTML = "<p>Locating…</p>";
-
-//   navigator.geolocation.getCurrentPosition(success, error);
-// }
-
-//         map = new google.maps.Map(document.getElementById('buttonsView'), {
-//           center: {lat: -34.397, lng: 150.644},
-//           zoom: 8
-//         });
-//       }
-// }
-// function api(){
-// var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCnaUowCn8tSao1lV56ztYhaIKG_TdH2TU&callback'
-// $.ajax({url: url, method: 'GET'})
-// .done(function(response){
-//     console.log('hi this is  city',response);
-//     console.log(response.results[0].formatted_address)
-//     address = JSON.stringify(response.results[0].formatted_address)
-//     console.log('this is the address',address);
-// })
-// }
 
 
 
@@ -232,7 +164,6 @@ function cb(data) {
 
 
             }
-            
                 var auth = {
                     //
                     // Update with your auth tokens.
@@ -247,32 +178,32 @@ function cb(data) {
                         signatureMethod : "HMAC-SHA1"
                     }
                 };
-        
-                var terms = 'food';
-                var near =  'san diego';
-        
+
                 var accessor = {
                     consumerSecret : auth.consumerSecret,
                     tokenSecret : auth.accessTokenSecret
                 };
                 console.log(mealType);
-                console.log(city);
+                console.log(zip);
+                console.log(priceChosen);
+
                 var parameters = [];
-                parameters.push(['term', terms]);
-                parameters.push(['category_filter', mealType]);
-                parameters.push(['location', city]);
+                parameters.push(['term', 'food']);
+                parameters.push(['category_filter', mealType.replace(/ +/g, "")]);
+                // parameters.push(['radius_filter', 10]);
+                parameters.push(['location', zip]);
                 parameters.push(['callback', 'cb']);
                 parameters.push(['oauth_consumer_key', auth.consumerKey]);
                 parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
                 parameters.push(['oauth_token', auth.accessToken]);
                 parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
-        
+
                 var message = {
                     'action' : 'https://api.yelp.com/v2/search',
                     'method' : 'GET',
                     'parameters' : parameters
                 };
-        
+
                 OAuth.setTimestampAndNonce(message);
                 OAuth.SignatureMethod.sign(message, accessor);
         
@@ -286,18 +217,59 @@ function cb(data) {
                     'cache': true
                 })
                 .done(function(data, textStatus, jqXHR) {
+                        var $result = '<div class="col-sm-5 restaurantInfo"></div><div class="col-sm-5" id="map"></div>'
+                        $('.row ').append($result);
                         var restaurants = jqXHR.responseJSON;
+                        var randomNumber = Math.floor(Math.random()*(restaurants.businesses.length));
+                        console.log(randomNumber);
                         console.log(restaurants);
-                        var randomNumber = Math.floor(Math.random()*10)
-                        var phone = restaurants.businesses[randomNumber].display_phone ;
-                        console.log(phone);
                         longitude = restaurants.businesses[randomNumber].location.coordinate.longitude;
                         latitude = restaurants.businesses[randomNumber].location.coordinate.latitude;
+                        console.log(longitude);
+                        var phone = restaurants.businesses[randomNumber].phone;
+                        var image = restaurants.businesses[randomNumber].image_url;
+                        var name = restaurants.businesses[randomNumber].name;
+                        var ratingImage =restaurants.businesses[randomNumber].rating_img_url;
+                        var snippet =restaurants.businesses[randomNumber].snippet_text;
+
+                        $('.restaurantInfo').append('<h3 class="weRecommend">Dinner on Me brings you!</h3>');
+                        $('.restaurantInfo').append('<h3 class="name">'+name+'</h3>');
+                        $('.restaurantInfo').append('<div class="snippet">Review highlight: ' +snippet+ '</div>');
+                        $('.restaurantInfo').append('<img src="'+ratingImage+'"class="ratingimage">' );
+                        $('.restaurantInfo').append('<img src="'+image+'" class="image"> ');
+                        $('#map').append('here goes the map');
+
+                        initMap();
+                            // Here is the aoo that makes the map appear on the screen
+                               function initMap() {
+                            var bestChoice = {lat: latitude, lng: longitude};
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                              zoom: 10,
+                              center: bestChoice
+                            });
+                            var marker = new google.maps.Marker({
+                              position: bestChoice,
+                              map: map
+                            });
+                          }
+
+                            function api(){
+                            var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCnaUowCn8tSao1lV56ztYhaIKG_TdH2TU&callback'
+                            $.ajax({url: url, method: 'GET'})
+                                .done(function(response){
+                                    console.log('hi this is  city',response);
+                                    console.log(response.results[0].formatted_address)
+                                    address = JSON.stringify(response.results[0].formatted_address)
+                                    console.log('this is the address',address);
+                                })
+                            }
 
                 })
 
                 .fail(function(jqXHR, textStatus, errorThrown) {
                         console.log('error[' + errorThrown + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
-                    });
-}
+                });
+            }
+
+
 
