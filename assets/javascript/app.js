@@ -1,3 +1,15 @@
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('buttonsView'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+
 var breakfast = {
     meal: 'Breakfast',
     options: ['Pancakes','Eggs','Omelet','American','Brunch','Creperies','Waffles'],
@@ -33,7 +45,9 @@ var mealChosen = '';
 var mealType = '';
 var priceChoice = '';
 var instructions = '';
-var city = ''; 
+var city = '';
+var latitude = '';
+var longitude = '';
 
 $(document).ready(function(){
 
@@ -210,7 +224,7 @@ var tokenRetrivalOptions = {
 };
 
 
-function cb(data) {        
+function cb(data) {
                     // console.log("cb: " + JSON.stringify(data));
                     console.log("cb: " + JSON.stringify(data.businesses[0].location));
                     console.log("cb: " + JSON.stringify(data.businesses[0].rating));
@@ -223,10 +237,8 @@ function cb(data) {
                     //
                     // Update with your auth tokens.
                     //
-                    consumerKey : "RpOfNfVyFi9ERNlGhsFL_A"
-,
-                    consumerSecret : "hPXdyUr2c_wL-LtdCvSyVZbrwek"
-,
+                    consumerKey : "RpOfNfVyFi9ERNlGhsFL_A",
+                    consumerSecret : "hPXdyUr2c_wL-LtdCvSyVZbrwek",
                     accessToken : "XEzpFfia9NnKwYT7V0lE3pMLjhJdqGJe",
                     // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
                     // You wouldn't actually want to expose your access token secret like this in a real application.
@@ -247,7 +259,6 @@ function cb(data) {
                 console.log(city);
                 var parameters = [];
                 parameters.push(['term', terms]);
-                parameters.push(['limit', 2]);
                 parameters.push(['category_filter', mealType]);
                 parameters.push(['location', city]);
                 parameters.push(['callback', 'cb']);
@@ -275,26 +286,18 @@ function cb(data) {
                     'cache': true
                 })
                 .done(function(data, textStatus, jqXHR) {
-                        var restaurant = jqXHR.responseJSON;
-                        var phone = restaurant.businesses[0].display_phone ;
+                        var restaurants = jqXHR.responseJSON;
+                        console.log(restaurants);
+                        var randomNumber = Math.floor(Math.random()*10)
+                        var phone = restaurants.businesses[randomNumber].display_phone ;
                         console.log(phone);
+                        longitude = restaurants.businesses[randomNumber].location.coordinate.longitude;
+                        latitude = restaurants.businesses[randomNumber].location.coordinate.latitude;
 
-                        $('#buttonsView').append('<div class="phone">This is the fucking phone number: ' +phone+ '</div>');
-                    }
-                )
+                })
+
                 .fail(function(jqXHR, textStatus, errorThrown) {
                         console.log('error[' + errorThrown + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
-                    }
-                );
+                    });
 }
 
-
-// var business = 'restaurant';
-// var search = 'thai food';
-// var url = 'https://api.yelp.com/v3/' + business + '/' + search;
-
-// $.ajax({url: url, method: 'GET' })
-//   .done(function(response){
-//     debugger;
-//     console.log(response);
-//   })
